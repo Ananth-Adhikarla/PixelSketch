@@ -122,7 +122,6 @@ function ToggleButtons(buttonName){
   inactiveButton.forEach(button => {
     ToggleButtonClass(button.name, button.state);
   });
-
 }
 
 function ToggleButtonClass(buttonName, buttonState){
@@ -391,6 +390,7 @@ function Erase(squareId){
 function ColorPicker(squareId){
   var square = document.getElementById(squareId);
   currentPenColor = window.getComputedStyle(square).backgroundColor;
+  penColorInput.value = RGBtoHEX(currentPenColor);
 }
 
 /**
