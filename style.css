@@ -277,7 +277,7 @@ input::-webkit-color-swatch{
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 1.5rem 3rem;
-  width: 800px;
+  width: 900px;
   border-radius: 0.5rem;
   color: black;
 }
@@ -309,4 +309,8 @@ input::-webkit-color-swatch{
 
 .mb{
   margin-bottom: 1rem;
+}
+
+.help-list-padding > li{
+  padding: 3px
 }

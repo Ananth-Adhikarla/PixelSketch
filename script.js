@@ -9,7 +9,8 @@ const type_colorfill    = "colorfill";
 const type_eraser       = "eraser";
 const type_colorpicker  = "colorpicker";
 const type_rainbow      = "rainbow";
-const type_darklight    = "darklight";
+const type_lighten      = "lighten";
+const type_darken       = "darken";
 
 const adjustColorAmount = 0.25;
 
@@ -58,9 +59,14 @@ var buttonObj = [
     type: type_rainbow,
   },
   {
-    name: "darklightBtn",
+    name: "lightenBtn",
     state: false,
-    type: type_darklight,
+    type: type_lighten,
+  },
+  {
+    name: "darkenBtn",
+    state: false,
+    type: type_darken,
   },
 ]
 
@@ -215,24 +221,40 @@ function DrawHandler(event){
       RainbowDraw(event.target.id);
     }
   }
-  else if(currentButton.type === type_darklight){
-    /**
-     * If mouse enter or mouse down and left click = lighten square
-     * If mouse enter or mouse down and right click = darken square
-     */
+  else if(currentButton.type === type_lighten){
     if(event.type === 'mouseenter' && event.which === 1){
       LightenSquare(event.target.id);
     }
-    else if(event.type === 'mousedown' && event.which === 1){
+    else if(event.type === 'mousedown'){
       LightenSquare(event.target.id);
     }
-    else if(event.type === 'mouseenter' && event.which === 3){
+  }
+  else if(currentButton.type === type_darken){
+    if(event.type === 'mouseenter' && event.which === 1){
       DarkenSquare(event.target.id);
     }
-    else if(event.type === 'mousedown' && event.which === 3){
+    else if(event.type === 'mousedown'){
       DarkenSquare(event.target.id);
     }
   }
+  // else if(currentButton.type === type_darklight){
+  //   /**
+  //    * If mouse enter or mouse down and left click = lighten square
+  //    * If mouse enter or mouse down and right click = darken square
+  //    */
+  //   if(event.type === 'mouseenter' && event.which === 1){
+  //     LightenSquare(event.target.id);
+  //   }
+  //   else if(event.type === 'mousedown' && event.which === 1){
+  //     LightenSquare(event.target.id);
+  //   }
+  //   else if(event.type === 'mouseenter' && event.which === 3){
+  //     DarkenSquare(event.target.id);
+  //   }
+  //   else if(event.type === 'mousedown' && event.which === 3){
+  //     DarkenSquare(event.target.id);
+  //   }
+  // }
   else{
     return;
   }
