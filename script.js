@@ -185,7 +185,8 @@ function DrawHandler(event){
   // console.log("Event : " + event.which + " " + event.type + " " + event.target.id)
   var currentButton = GetCurrentButton();
   if(currentButton.type === type_pen){
-    if(event.type === 'mouseenter' && event.which === 1){
+    // if(event.type === 'mouseenter' && event.which === 1) -- event.which deprecated // not working in firefox
+    if(event.type === 'mouseenter' && (event.buttons == 1 && event.button == 0)){
       Draw(event.target.id);
     }
     else if(event.type === 'mousedown'){
@@ -193,7 +194,7 @@ function DrawHandler(event){
     }
   }
   else if(currentButton.type === type_colorfill){
-    if(event.type === 'mouseenter' && event.which === 1){
+    if(event.type === 'mouseenter' && (event.buttons == 1 && event.button == 0)){
       ColorFill(event);
     }
     else if(event.type === 'mousedown'){
@@ -201,7 +202,7 @@ function DrawHandler(event){
     }
   }
   else if(currentButton.type === type_eraser){
-    if(event.type === 'mouseenter' && event.which === 1){
+    if(event.type === 'mouseenter' && (event.buttons == 1 && event.button == 0)){
       Erase(event.target.id);
     }
     else if(event.type === 'mousedown'){
@@ -214,7 +215,7 @@ function DrawHandler(event){
     }
   }
   else if(currentButton.type === type_rainbow){
-    if(event.type === 'mouseenter' && event.which === 1){
+    if(event.type === 'mouseenter' && (event.buttons == 1 && event.button == 0)){
       RainbowDraw(event.target.id);
     }
     else if(event.type === 'mousedown'){
@@ -222,7 +223,7 @@ function DrawHandler(event){
     }
   }
   else if(currentButton.type === type_lighten){
-    if(event.type === 'mouseenter' && event.which === 1){
+    if(event.type === 'mouseenter' && (event.buttons == 1 && event.button == 0)){
       LightenSquare(event.target.id);
     }
     else if(event.type === 'mousedown'){
@@ -230,7 +231,7 @@ function DrawHandler(event){
     }
   }
   else if(currentButton.type === type_darken){
-    if(event.type === 'mouseenter' && event.which === 1){
+    if(event.type === 'mouseenter' && (event.buttons == 1 && event.button == 0)){
       DarkenSquare(event.target.id);
     }
     else if(event.type === 'mousedown'){
@@ -242,16 +243,16 @@ function DrawHandler(event){
   //    * If mouse enter or mouse down and left click = lighten square
   //    * If mouse enter or mouse down and right click = darken square
   //    */
-  //   if(event.type === 'mouseenter' && event.which === 1){
+  //   if(event.type === 'mouseenter' && (event.buttons == 1 && event.button == 0)){
   //     LightenSquare(event.target.id);
   //   }
-  //   else if(event.type === 'mousedown' && event.which === 1){
+  //   else if(event.type === 'mousedown' && (event.buttons == 1 && event.button == 0)){
   //     LightenSquare(event.target.id);
   //   }
-  //   else if(event.type === 'mouseenter' && event.which === 3){
+  //   else if(event.type === 'mouseenter' && (event.buttons == 1 && event.button == 2)){
   //     DarkenSquare(event.target.id);
   //   }
-  //   else if(event.type === 'mousedown' && event.which === 3){
+  //   else if(event.type === 'mousedown' && (event.buttons == 1 && event.button == 2)){
   //     DarkenSquare(event.target.id);
   //   }
   // }
